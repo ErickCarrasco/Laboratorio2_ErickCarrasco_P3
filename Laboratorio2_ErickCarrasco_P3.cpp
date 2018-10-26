@@ -261,10 +261,57 @@ int main(){
 					}//FIN DE ER
 					
 					if(terminal=="ar"){
-						string concatenado;
+						stringstream concatenado;
 						for(int i = 0; i<validador-2;i++){
 							char valor = palabra[i];
+							concatenado<<valor;
 						}
+						
+						string palabraconc = concatenado.str();
+						
+						//Pasado
+						stringstream concatenadop;
+						concatenadop<<palabraconc<<"uve";
+						string palabrapas=concatenadop.str();
+						cout<<"Pasado: "<< palabrapas<<endl;
+
+						//Presente
+						stringstream concatenadopres;
+						concatenadopres<<palabraconc<<"o";
+						string palabrapres=concatenadopres.str();
+						cout<<"Presente: " << palabrapres<<endl;
+
+						//Futuro
+						stringstream concatenadofu;
+						concatenadofu<<palabraconc<<"are";
+						string palabrafu=concatenadofu.str();
+						cout<<"Futuro: " << palabrafu<<endl;
+					}//FIN AR
+
+					if(terminal=="ir"){
+						stringstream concatenado;
+						for(int i =0 ; i<validador-2; i++){
+							char valor = palabra[i];
+							concatenado<<valor;
+						}
+						string palabraconc = concatenado.str();
+
+						//Pasado
+						stringstream concatenadop;
+						concatenadop<<palabraconc<<"ido";
+						string palabrapas=concatenadop.str();
+						cout<<"Pasado: " << palabrapas<<endl;
+						
+						//Presente
+						stringstream concatenadopres;
+						//concatenadopres<<palabraconc<<;
+
+						//Futuro
+						stringstream concatenadofu;
+						concatenadofu<<palabraconc<<"ire";
+						string palabrafu=concatenadofu.str();
+						cout<<"Futuro: " <<palabrafu<<endl;
+						
 					}
 				}
 				else{
