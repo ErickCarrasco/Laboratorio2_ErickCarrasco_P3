@@ -12,6 +12,9 @@ using std::endl;
 using std::string;
 #include <ctime>
 
+#include <sstream>
+using std::stringstream;
+
 //FUNCIONES PARA EJERCICIO 1
 int* createArray(int);
 
@@ -148,10 +151,62 @@ int main(){
 				int numDecimal=0;
 				cout<<"Ingrese un numero: "<<endl;
 				cin>>numDecimal;
-				
-				if(numDecimal>=0){
+				int a2;
+				int tab=0;
+				int maxtab=0;
+				int table[0];
 
+				if(numDecimal>=0){
+					a2=numDecimal;
+					int remainder;
+						
+					while(numDecimal!=0){
+						remainder = numDecimal%2;
+						numDecimal = numDecimal/2;
+						maxtab++;
+					}//FIN Numero del size del array
+				
+					maxtab--;
+					numDecimal = a2;
+					table[0]=table[maxtab];
+					
+					while(numDecimal!=0){
+						remainder = numDecimal%2;
+						numDecimal = numDecimal/2;
+						table[tab]=remainder;
+						tab++;
+					}//Asignacion de numeros
+
+					tab--;
+					cout<<"The binary is: ";
+					/*
+					int table2[7];
+					int inserter = 7-maxtab;
+					for(int i =0; i<7; i++){
+						if(i<inserter){
+							table2[i]=0;
+						}
+						if(i>=inserter){
+							table2[i]=table[i-inserter];
+						}
+					
+					} 
+					*/
+					while(tab>=0){
+						cout<<table[tab]<<" ";
+						tab--;
+					}//FIN IMPRESION DE BINARY
+					/*
+					int iterator=7;
+					while(tab>=0){
+						cout<<"The data is: "<<endl;
+						cout<<table2[iterator]<<" ";
+						iterator--;
+					}
+					*/
+					cout<<endl;
 				}//FIN IF NUMEROS POSITIVOS
+
 				if(numDecimal<0){
 
 				}//FIN IF NUMEROS NEGATIVOS
@@ -160,7 +215,61 @@ int main(){
 
 			case 3:
 			{
-			
+				cout<<"Ingresando al nuevo dato"<<endl;
+				string palabra;
+				cout<<"Ingrese un verbo regular"<<endl;
+				cin>>palabra;
+				int validador=palabra.size();
+				char value1 = palabra[validador-1];
+				char value2 = palabra[validador-2];
+				
+				stringstream comparador;
+				comparador << value2<<value1;
+				string terminal = comparador.str();
+				cout<<terminal<<endl;
+				if(terminal == "er" || terminal == "ar" || terminal == "ir"){
+					cout<<"Palabra aceptada"<<endl;
+					
+					if(terminal=="er"){
+						stringstream concatenado;
+						for(int i = 0; i<validador-2;i++){
+							char valor= palabra[i];
+							concatenado<<valor;
+						}
+						string palabraconc=concatenado.str();
+						//cout<<palabraconc<<endl;
+						string pasado="i";
+
+						//PASADO
+						stringstream concatenadop;
+						concatenadop<<palabraconc<<pasado;
+						string palabrapas=concatenadop.str();
+						cout<<"Pasado: " << palabrapas<<endl;
+						
+						//Presente	
+						stringstream concatenadopres;
+						concatenadopres<<palabraconc<<"o";
+						string palabrapres=concatenadopres.str();
+						cout<< "Presente: " << palabrapres<<endl;
+	
+						//Futuro
+						stringstream concatenadofu;
+						concatenadofu<<palabraconc<<"ere";
+						string palabrafu=concatenadofu.str();
+						cout<< "Futuro: " << palabrafu<<endl;
+					
+					}//FIN DE ER
+					
+					if(terminal=="ar"){
+						string concatenado;
+						for(int i = 0; i<validador-2;i++){
+							char valor = palabra[i];
+						}
+					}
+				}
+				else{
+					cout<<"Palabra no aceptada!"<<endl;
+				}
 			}
 			break;
 
